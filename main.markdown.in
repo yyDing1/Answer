@@ -1,127 +1,29 @@
-\subsection{题面}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Time Limit}
-2s
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Memory Limit}
-128M
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{题目}
-有一天老彼得对小彼得说：“小彼得，我这里有 $t$ 个数组，每一个数组  $A_j$（$1 \le
-j \le t$），不妨设数组 $A_j$ 的长度为 $L_j$，数组的上界为 $R_j$（上界不一定在数
-组里，但是大于等于所有的数组元素），那么我可以断言它的每一个元素 $a_i$（$1 \le i
-\le L_j$）满足 $2 \le a_i \le R_j$。”
-
-老彼得知道小彼得最近学习了有手就行的算数基本定理（即：任何整数都存在，且只存在一
-种的分解为质数乘积的形式），老彼得的妻子安娜·卡特琳娜因为一个让人羞愤的理由离开
-了老彼得，老彼得突然对儿子的教育燃起了新的热情，他补充到：“我知道，给定一个数 $E
-= p_1^{b_1}\cdot p_2^{b_2}\cdot \cdots \cdot p_n^{b_n}$，它有且只有这么一种表达
-形式，所以 $S(E) = b_1 + b_2 + \cdots + b_n$ 的值也是唯一的，比如说 $72 = 2^3
-\times 3^2$，那么 $S(72)=3+2=5$。小彼得，我希望你把这个数组对应的 $S$ 值求出来。
-
-“小彼得，我希望你好好学习，要多看看一些数学书什么的！比如《初等数论》！在这周五
-我会来检查你的作业情况的！”
-
-但是在周五，小彼得收到了一台由 AMD 强力驱动的，并搭载了 Ubuntu 的计算机，根本无心
-写那个即愚蠢又简单的、有手就行的问题。请问你能帮帮他吗？
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{输入}
-输入的第一行包含了一个整数 $t$（$1\le t \le 10$），代表了有 $t$ 个测试样例，每一
-个测试样例具有如下的格式：
-
-每一个测试样例的第一行包含了两个整数，分别代表了$A_j$ 数组的数组长度 $L_j$（$1
-\le L_j \le 5 \times 10^{2}$，且 $1 \le t \times L_j \le 5 \times 10^{4}$），和
-$R_j$（每一个测试样例的数字范围边界，$1 \le R_j \le 1 \times 10^{9}$）。
-
-每一个测试样例的第二行包含 $L_j$ 个元素 $a_1,\, a_2,\, \ldots,\, a_{L_j}$，表示
-$A_j$，对于任意 $i \in [1, L_j]$，有：$a_i \le R_j$。
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{输出}
-输出 $t$ 个结果，每个结果对应于输入的每一个测试样例。
-对于每一个结果包含了 $L_j$ 个结果 $b_1,\, b_2,\, \ldots,\, b_{L_j}$。
-其中 $b_i$ 为对应的 $a_i = p_1^{c_1}\cdot p_2^{c_2}\cdot \cdots \cdot p_n^{c_n}$
-中所有素数对应的指数之和 $S(a_i) = c_1 + c_2 + \cdots + c_n$。
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{示例}
-输入：
-\begin{lstlisting}
-1
-10 100
-3 12 4 34 25 78 90 45 23 21
-\end{lstlisting}
-
-输出：
-\begin{lstlisting}
-1 3 2 2 2 3 4 3 1 2
-\end{lstlisting}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{说明}
-对于 $3$，有：$3 = 3 \Longrightarrow S(3) = 1$。
-
-对于 $12$，有：$12 = 2^2 \cdot 3 \Longrightarrow S(12) = 3$。
-
-对于 $4$，有：$4 = 2^2 \Longrightarrow S(4) = 2$。
-
-对于 $34$，有：$34 = 2 \cdot 17 \Longrightarrow S(34) = 2$。
-
-对于 $25$，有：$25 = 5^2 \Longrightarrow S(25) = 2$。
-
-对于 $78$，有：$78 = 2 \cdot 3^2 \cdot 13 \Longrightarrow S(78) = 3$。
-
-对于 $90$，有：$90 = 2 \cdot 3^2 \cdot 5 \Longrightarrow S(90) = 4$。
-
-对于 $45$，有：$45 = 3^2 \cdot 5 \Longrightarrow S(45) = 3$。
-
-对于 $23$，有：$23 = 23 \Longrightarrow S(23) = 1$。
-
-对于 $21$，有：$21 = 3 \cdot 7 \Longrightarrow S(21) = 2$。
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{题解}
-
-\emph{不保证题解的完全正确，如果有错误、或希望补充，请访问 https://github.com/Pe%
-terlitsZo/Answer 修改、评论}
+**不保证题解的完全正确，如果有错误、或希望补充，请访问 【暂无】 修改、评论**
 
 对于每一个测试样例，我们有上界 $R$ 和数据 $a_1,\, a_2,\, \ldots,\, a_{L}$。
 
-\subsubsection{筛法}
+### 筛法
+使用筛法，我们可以在 $O(R + L)$ 的时间复杂度中完成操作（证明略）。但是明显时间复杂度度过大。
 
-使用筛法，我们可以在 $O(R + L)$ 的时间复杂度中完成操作（证明略）。但是明显时间复
-杂度度过大。
-
-\subsubsection{朴素分解质因数}
-
-\emph{本来这个是过不去的，但是学长说不能出太难了，所以改了一下，这个应该能过得过去。}
-
-\emph{注意，因为 米勒罗宾+rho 算法只适用于 $S$ 值较小的大合数分解（因为它的常数太大了），所以更改了数据之后的，它的解只能用朴素的分解质因数的方法}
+### 朴素分解质因数
+**本来这个是过不去的，但是学长说不能出太难了，所以改了一下，这个应该能过得过去。**
+**注意，因为 米勒罗宾+rho 算法只适用于 $S$ 值较小的大合数分解（因为它的常数太大了），所以更改了数据之后的，它的解只能用朴素的分解质因数的方法**
 
 利用反证法我们可以知道，如果一个数 $N$ 有非平凡因子 $a$，那 $N$ 一定存在一个非平凡因子 $b \le \sqrt N$。
 
-\begin{quotation}
-如果 $a \le \sqrt N$，那么令 $b = a$；如果 $a > \sqrt N$，因为 $a$ 为 $N$ 的因子，有存在：$ab = N$，其中 $b$ 即为所求：$b$ 为 $N$ 的因子，且 $b \le \sqrt N$。
-\end{quotation}
+> 如果 $a \le \sqrt N$，那么令 $b = a$；如果 $a > \sqrt N$，因为 $a$ 为 $N$ 的因子，有存在：$ab = N$，其中 $b$ 即为所求：$b$ 为 $N$ 的因子，且 $b \le \sqrt N$。
 
 我们可以分类讨论：如果 $N$ 不存在素因子 $a > \sqrt N$，那么我们可以在 $[2, \lfloor\sqrt N\rfloor]$ 的循环中解出所有的素因子；如果 $N$ 存在素因子 $a > \sqrt N$，那么可以证明（见下）满足这个条件的素因子 $a$ 有且只有一个，我们可以在循环之后判断。
 
-\begin{quotation}
-如果有一个素因子 $a > \sqrt N$，那么 ${N \over a} \le \sqrt N$，因为素数整除性质，如果有另一个素因子 $b \mid N$，那么有 $b \mid a$，或者 $b \mid {N \over a}$。
-
-如果 $b \mid a$，因为素数的性质，则 $a = b > \sqrt N$，有 $ab > N$，矛盾；如果 $b \mid {N \over a}$，那么有 $b \le {N \over a} < \sqrt N$。
-
-综上，如果有一个素因子 $a > \sqrt N$，那么有且只有素因子 $a$ 满足 $a > \sqrt N$。
-\end{quotation}
+> 如果有一个素因子 $a > \sqrt N$，那么 ${N \over a} \le \sqrt N$，因为素数整除性质，如果有另一个素因子 $b \mid N$，那么有 $b \mid a$，或者 $b \mid {N \over a}$。
+>
+> 如果 $b \mid a$，因为素数的性质，则 $a = b > \sqrt N$，有 $ab > N$，矛盾；如果 $b \mid {N \over a}$，那么有 $b \le {N \over a} < \sqrt N$。
+>
+> 综上，如果有一个素因子 $a > \sqrt N$，那么有且只有素因子 $a$ 满足 $a > \sqrt N$。
 
 可以写代码如下：
 
-\begin{lstlisting}[language=C++]
+``` C++
 using ll = long long;
 ll solve(ll N) {
     assert (N >= 2);
@@ -144,43 +46,43 @@ int main() {
     cout << solve(ll(1e9)+7);
 }
 */
-\end{lstlisting}
+```
 
-或者 python 代码
-\begin{lstlisting}[language=python]
-def RR(num: int):
-    if num <= 1:
-        return 0
-    result = 0
-    for i in range(2, num):
-        if i**2 > num:
-            break
-        while num % i == 0:
-            num /= i
-            result += 1
-    if num != 1:
-        result += 1
-    return result
-
-def solve():
-    _, _ = [int(i) for i in input().split()]
-    nums = [int(i) for i in input().split()]
-    for i, v in enumerate(nums):
-        nums[i] = RR(v)
-    print(*nums)
-
-if __name__ == '__main__':
-    T = int(input())
-    for i in range(T):
-        solve()
-\end{lstlisting}
+% 或者 python 代码
+% ``` python
+% def RR(num: int):
+%     if num <= 1:
+%         return 0
+%     result = 0
+%     for i in range(2, num):
+%         if i**2 > num:
+%             break
+%         while num % i == 0:
+%             num /= i
+%             result += 1
+%     if num != 1:
+%         result += 1
+%     return result
+%
+% def solve():
+%     _, _ = [int(i) for i in input().split()]
+%     nums = [int(i) for i in input().split()]
+%     for i, v in enumerate(nums):
+%         nums[i] = RR(v)
+%     print(*nums)
+%
+% if __name__ == '__main__':
+%     T = int(input())
+%     for i in range(T):
+%         solve()
+% ```
 
 分析可知，平均的时间复杂度为 $O(\sqrt N)$。如果每一个元素分布得比较平均，则一个测试样例的时间复杂度应为 $O(LR^{1 \over 2})$（需要一点微积分知识，证明略），时间复杂度还是有点大。
 
-\subsubsection{优化的朴素分解质因数}
+### 优化的朴素分解质因数
 我们注意到 $[2, \lfloor\sqrt N\rfloor]$ 的循环中，只有 $i$ 为素数时才可能满足 $i \mid N$（证明略）。给定了上界 $R$，我们可以用欧拉筛在 $O(\sqrt R)$ 的时间复杂度中筛出所有的小于等于 $\sqrt N$ 的素数（证明略），根据素数分布定理，$\sqrt N$ 的素数数量约为 $\sqrt N \over \ln \sqrt N$。我们可以在 $O(\sqrt R + L{\mathrm{Ei}({3\ln R\over 2}) \over R})$ 的复杂度中完成（由 https://www.wolframalpha.com/ 给出，我也不大会），$\mathrm{Ei}(x)$ 可以近似地看作 $e^x$，那么有近似 $O(\sqrt R + LR^{1 \over 2})$。复杂度没有变化，但的确有明显的优化，常数比较小。
 
-\begin{lstlisting}[language=C++]
+``` C++
 using ll = long long;
 template<typename T>
 using vc = vector<T>;
@@ -223,18 +125,16 @@ int main() {
     cout << solve(ll(1e9)+7, primes);
 }
 */
-\end{lstlisting}
+```
 
-\subsubsection{rho 算法与 miller-rabin 素数检测}
+### rho 算法与 miller-rabin 素数检测
 rho 算法是一种用来分解非平凡因子的随机算法，平均的时间复杂度较低。关于 rho 算法，可以查阅 https://www.cs.colorado.edu/~srirams/courses/csci2824-spr14/pollardsRho.html 或者 https://oi-wiki.org/math/pollard-rho/。
 
 对于数 $N$，如果它不是素数的话，那我们可以使用 rho 算法将它分解为两个非平凡因子 $p$ 与 $q={N \over p}$，有：$S(N) = S(p) \times S(q)$。
 
-出人意料的是，虽然目前没有一个能在多项式复杂度里分解质因数的算法（不过网上说量子计算机可以在多项式的时间复杂度里分解质因数？），但是却已经可以在多项式里证明一个数是否为素数。RSA 算法就是依托于两者难度不匹配的情况设计了一个简单的公私匙系统保证通话安全。这
-里使用易于实现的 miller-rabin 随机算法。miller-rabin 算法可以在 https://oi-wiki.org/math%
-/prime/\#miller-rabin 进行学习。它的时间复杂度大抵在 $O(ln n)$ 左右。
+出人意料的是，虽然目前没有一个能在多项式复杂度里分解质因数的算法（不过网上说量子计算机可以在多项式的时间复杂度里分解质因数？），但是却已经可以在多项式里证明一个数是否为素数。RSA 算法就是依托于两者难度不匹配的情况设计了一个简单的公私匙系统保证通话安全。这里使用易于实现的 miller-rabin 随机算法。miller-rabin 算法可以在 https://oi-wiki.org/math/prime/#miller-rabin 进行学习。它的时间复杂度大抵在 $O(ln n)$ 左右。
 
-\begin{lstlisting}[language=C++]
+``` C++
 using ll = long long;
 
 ll fmul(ll a, ll b, ll N) {
@@ -277,10 +177,10 @@ bool is_prime(ll N) {
     }
     return true;
 }
-\end{lstlisting}
+```
 
 不过，这种素数检测方法的常数较高，在数较小的时候不比优化后的试除法，但是题目给的数据范围较大，所以应该使用这种素数检测方法，下面是仅供参考的优化试除法：
-\begin{lstlisting}[language=C++]
+``` C++
 using ll = long long;
 
 bool is_prime(ll N) {
@@ -293,10 +193,10 @@ bool is_prime(ll N) {
     }
     return true;
 }
-\end{lstlisting}
+```
 
 接下来是 rho 算法，它期望得到一个合数，并且会返回一个非平凡因子，在函数体里用到了一些上面的函数，和 `gcd` 函数：
-\begin{lstlisting}[language=C++]
+``` C++
 ll gcd(ll a, ll b) {
     return a ? gcd(b % a, a) : b;
 }
@@ -321,12 +221,12 @@ ll rho(ll N) {
         }
     }
 }
-\end{lstlisting}
+```
 
-使用 \verb|rho| 和检测素数的算法 \verb|is_prime|，时间复杂度大约在 $O(N^{1\over 4})$。
+使用 `rho` 和检测素数的算法 `is_prime`，时间复杂度大约在 $O(N^{1\over 4})$。
 
-\subsubsection{参考代码}
-\begin{lstlisting}[language=C++]
+### 参考代码
+``` C++
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -425,5 +325,6 @@ int main() {
     }
 }
 
-\end{lstlisting}
+
+```
 
