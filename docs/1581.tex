@@ -57,3 +57,24 @@ pzgg是acm高手，觉得这太简单了,所以现在他想来考考聪明的你
 6
 32
 \end{lstlisting}
+
+二维前缀和，开一个二维数组
+
+记$sum[x][y]$表示左上角为$(1, 1)$右下角为$(x, y)$的矩阵$a$中所有元素的和
+
+即$sum[x][y] = \sum\limits_{i = 1}^{x}\sum\limits_{j = 1}^{y}{a[i][j]}$
+
+$sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1]$，可由此式求出整个$sum$数组
+
+对于每次询问:
+
+$\sum\limits_{i = x_1}^{x_2}\sum\limits_{j = y_1}^{y_2}{a[i][j]} = sum[x_2][y_2] - sum[x_1 - 1][y_2] - sum[x_2][y_1 - 1] + sum[x_1 - 1][y_1 - 1]$
+
+即为每次询问的答案
+
+具体的讲解和证明可以百度学习，这里放一个[链接](https://blog.csdn.net/Zeolim/article/details/86770827)
+
+时间复杂度：$O(max(n^2, q))$
+
+注意：如果维护每一行(列)的一维前缀和再每次累加也可过(因复杂度略大，可能只有C++可过)，时间复杂度：$O(max(nq, nm))$
+
